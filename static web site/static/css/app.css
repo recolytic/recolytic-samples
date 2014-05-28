@@ -1,0 +1,71 @@
+@font-face
+{
+  font-family: segoeuil;
+  src: url(segoeuisl.woff);
+}  
+
+
+html, body {
+  height: 100%;
+}
+
+p, i, a, h4, h3, h2 {
+  color: #63666a;
+  font-family: segoeuil;
+  letter-spacing:0px  
+}
+
+h4 {
+  font-size: 9px;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 900;  
+}
+
+a {
+  font-size: 16px;  
+  font-weight: 900; 
+}
+
+p {
+  font-size: 9px;
+  font-weight: 700;
+}
+
+i {
+  font-size: 16px;
+}
+
+.logo {
+  margin-top:15px;
+  margin-bottom:15px
+}
+
+.thumbnails .caption{ overflow :hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -31px;
+}
+
+#push,
+#footer {
+        height: 30px;
+}
+
+#footer {
+  background-color: #f5f5f5;
+  border-top:1px solid #C8C8C8 ;
+}
