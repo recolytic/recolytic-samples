@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="shop">
+<html lang="en" >
 	<head>
 		<meta charset="utf-8">
 		<title>demo shop.recolytic.com</title>
@@ -9,24 +9,21 @@
 		<link href="http://netdna.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/app.css"/>
+		<script type="text/javascript"  src="js/key.js"></script> 
+		<script type="text/javascript"  src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
 		
 		<script type="text/javascript">
-		    var _rtq = _rtq || [];
-		    //Set the apikey
-		    _rtq.push(['set', 'apiKey', 'e50f6294-d731-db74-4033-d4ea797ee445']);
-		    //dev
-		    _rtq.push(['set', 'baseUrl', '//localhost.com:5001/api/engine/']);
+			var _rtq = _rtq || [];
 
-		    //SPA disable auto collect
-		    _rtq.push(['set', 'autoCollect', false]);
-		    _rtq.push(['set', 'trackUpTake', false]); 
-
-		    (function() {
-		      var rca = document.createElement('script'); rca.type = 'text/javascript'; rca.async = true;
-		      rca.src = '//localhost.com:5000/plugin/recolytic.js';
-		      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rca, s);
-		    })();
-	  	</script>
+			_rtq.push(['set', 'apiKey', subscription_api_key]);
+			_rtq.push(['set', 'autoCollect', false]);
+			
+			(function() {
+			  var rca = document.createElement('script'); rca.type = 'text/javascript'; rca.async = true;
+			  rca.src = 'http://www.recolytic.com/plugin/recolytic.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rca, s);
+			})();
+	  	</script>	  	
 	 </head>
 	 
 	 <body>
@@ -56,41 +53,103 @@
 			<div class="row">
 				<div class="span4">
 					<ul class="breadcrumb text-center">	
-						<li>
-							<a href="#/catalog/{{section}}"> Femme</a>
-						</li>
+						<li>Femme</li>
 					</ul>
 					<ul class="unstyled">
-						<li>
+						<li class="media"> 
+							<a  href="G_63774699_85_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_63774699_85_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Blouson zippé à col classique</h4>
+								<h4>179 €</h4>
+							</div>   							
+						</li>
+						<li class="media"> 
+							<a  href="G_67952226_62_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_67952226_62_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Doudoune Sabeen</h4>
+								<h4>110 €</h4>
+							</div>   							
+						</li>
+						<li class="media"> 
+							<a  href="G_34829051_60_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_34829051_60_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Doudoune à capuche en raton laveur rembourrage plume</h4>
+								<h4>370 €</h4>
+							</div>   							
+						</li>
+						<li class="media"> 
+							<a  href="G_32112013_85_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_32112013_85_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Blouse coton brodée</h4>
+								<h4>49,99 €</h4>
+							</div>   							
+						</li>	
+						<li class="media"> 
+							<a  href="G_45921194_85_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_45921194_85_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Chemise manches longues coudières</h4>
+								<h4>109 €</h4>
+							</div>   							
 						</li>
 					</ul>
 				</div>
 				<div class="span4">
 					<ul class="breadcrumb text-center">	
-						<li>
-							<a href="#/catalog/{{section}}"> Homme</a>
-						</li>
+						<li>Homme</li>
 					</ul>
 					<ul class="unstyled">
-						<li>
+						<li class="media"> 
+							<a  href="G_44178374_320_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_44178374_320_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Veste en velours détails en satin</h4>
+								<h4>129,90 €</h4>
+							</div>   							
 						</li>
+						<li class="media"> 
+							<a  href="G_12877118_119_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_12877118_119_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Veste imprimé pied de poule en lin coupe droite</h4>
+								<h4>129,90 €</h4>
+							</div>   							
+						</li>
+						<li class="media"> 
+							<a  href="G_65264061_266_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_65264061_266_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Veste en tweed coupe droite</h4>
+								<h4>129,90 €</h4>
+							</div>   							
+						</li>
+						<li class="media"> 
+							<a  href="G_66533027_125_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_66533027_125_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Tee-shirt manches longues</h4>
+								<h4>129,90 €</h4>
+							</div>   							
+						</li>
+						<li class="media"> 
+							<a  href="G_37047487_464_VPM_1.html"><img class="media-object pull-left" src="http://assets.recolytic.com/demo/shop/media/G_37047487_464_VPM_1.jpg" ></a>
+							<div class="media-body"  >
+								<h4>Polo en coton piqué stretch coupe droite</h4>
+								<h4>100 €</h4>
+							</div>   							
+						</li>						
 					</ul>					
 				</div>
 				<div class="span4">
 					<ul class="breadcrumb text-center">	
-						<li>
-							<a href="#/catalog/{{section}}"> Vos articles vus récemment</a>
-						</li>
+						<li>Vos articles vus récemment</li>
 					</ul>
-					<ul class="unstyled">
-						<li>
-						</li>
-					</ul>					
+					<div >
+						<ul id="recoHolder" class="unstyled">
+							<li>
+							</li>
+						</ul>		
+					</div>
 				</div>
 			</div>
 		</div>	
 		<!--footer  -->	
-		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript"  src="http://netdna.bootstrapcdn.com/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/home.js"></script> 
 	 </body>
-</head>
+</html>
