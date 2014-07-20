@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" ng-app="movies">
+	<head>
+		<meta charset="utf-8">
+		<title>demo movies recolytic.com</title>
+		<meta property="og:title" content="demo movies recommender  by recolytic.com" />
+		<meta property="og:image" content="http://assets.recolytic.com/demo/movies/logo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" />
+        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.min.css" >
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-45770264-1', 'recolytic.com');
+		  ga('send', 'pageview');
+		</script>			  
+	</head>
+	<body ng-cloak>
+		<!--wrapper-->
+		<div id="wrap" class="container" >
+			<!-- header: logo and navigation -->
+			<div class="row">
+				<div class="span6">
+					<h4>Sample integration project with <a href="http://www.recolytic.com">recolytic</a> api</h4>
+					<iframe src="http://ghbtns.com/github-btn.html?user=recolytic&repo=recolytic-samples&type=fork&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="177" height="20"></iframe>
+				</div>
+				<div class="span6" >
+					<img src="http://assets.recolytic.com/demo/sample-logo.png" class="logo">
+				</div>				
+			</div>
+    		<!-- main content -->
+    		<div class="container" >
+    			<div ng-view>
+    			</div>
+    		</div>
+    	</div>
+    	
+		<!--footer  -->	
+		<div id="footer">
+			<div class="container">
+				<p style="height:8px; padding-top:5px">&copy; 2013 recolytic.com</p>
+			</div>
+		</div> 
+		<!--libraries-->
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular/angular-resource.js"></script>
+		<script src="lib/angular/angular-cookies.js"></script>
+		<script src="lib/jquery/jquery-2.0.2.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.4.0.min.js"></script>
+	  	<script src="app/app.js"></script>
+  		<script src="app/services.js"></script>
+  		<script src="app/controllers.js"></script>
+  		<script src="app/filters.js"></script>
+  		<script src="app/directives.js"></script>  		
+	</body>
+</html>

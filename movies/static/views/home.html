@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="span6">
+        
+        <h3>Tell us what movies you <i class="icon-thumbs-up"></i> and get recommendations for other movies you will like.</h3> 
+        
+        <div class="row" style="border-right:1px dotted #63666a">
+            <ul class="span6 media-list" >
+                <!-- movie template -->
+                <li class="media span3" style="margin-left: 0px;margin-top: 10px;" ng-repeat="movie in movies | startFrom:currentPage*pageSize | limitTo:pageSize | filter:query"  >
+                    <img class="media-object pull-left"  ng-src="http://assets.recolytic.com/demo/movies/media/{{movie.id}}.jpg" ng-click="showDetails(movie, false)">
+                    <div  ng-click="like(movie)"  >
+                        <i class="icon-thumbs-up" ng-class="{liked: movie.wasLiked}"></i>
+                        <div class="media-body" >
+                            <h4 class="media-heading" ng-class="{liked: movie.wasLiked}">{{movie.title}}</h4>
+                        </div>
+                    </div>
+                </li><!--movie template-->
+            </ul>
+        </div><!--list movies-->
+
+        <div class="pagination pagination-large pagination-centered" style="margin-bottom: 40px;">
+            <ul>
+                <li ng-class="{disabled:isPreviousDisabled()}"><a ng-click="decrementPagePosition()">«</a></li>
+                <li class="disabled"><a>{{position()}}</a></li>
+                <li ng-class="{disabled:isNextDisabled()}"><a ng-click="incrementPagePosition()">»</a></li>
+            </ul>
+        </div><!--movie pagination-->
+    </div><!-- movies -->
+    <!-- explicit uu recommendation -->
+    <div class="span5">
+        <h3>Movies you may  <i class="icon-thumbs-up"></i>  </h3> 
+        <a ng-click="changeExplanationMode()" ng-show="explanationMode">Hide explanation</a>
+        <a ng-click="changeExplanationMode()" ng-show="!explanationMode">Show explanation</a>
+        <div class="row" ng-show="explanationMode">
+            <div class="span5">
+                <ul class="unstyled">
+                    <li><h4><b>Context:</b>Using the explicit action 'like' we start knowing your preference, and we can provide you a personalized recommendation.</h4></li>
+                    <li><h4><b>Recommendation Strategy:</b>User to user collaborative filtering: What movies you liked, who are the users who like the same movies, and what other movies they like ?</h4> </li>
+                </ul>
+            </div>
+        </div>    
+
+        <ul class="unstyled" >
+            <li class="media" style="margin-top: 10px;" ng-repeat="reco in recommended"  >
+                <img class="media-object pull-left" ng-src="{{reco.media}}" title="{{reco.title}}" alt="{{reco.title}}" ng-click="showDetails(reco,true)">
+                <h4><b>{{reco.title}}</b> </h4>
+                <h4><b>Score:{{reco.score}}</b> </h4> 
+            </li>
+        </ul>
+    </div><!--end recommendation-->
+
+   <!--pop up-->
+    <script type="text/ng-template" id="movieDetails.html" close="ok()">
+        <div class="modal-header">
+        <button type="button"  class="close"  ng-click="ok()" >&times;</button>
+            <h2>{{currentMovie.title}}</h2>
+        </div>
+        <div class="modal-body">
+
+            <div class="media">
+                <img   class="pull-left" ng-src="http://assets.recolytic.com/demo/movies/media/{{currentMovie.id}}.jpg" title="{{currentMovie.title}}" alt="{{currentMovie.title}}">
+            
+                <div class="media-body">
+                    <ul class="unstyled">
+                        <li><strong>Director:</strong> {{currentMovie.director}}.</li>
+                        <li><strong>Year: </strong>{{currentMovie.year}}.</li>
+                        <li><strong>Genre: </strong>{{currentMovie.genre}}.</li>
+                        <li><strong>Actors:</strong> {{currentMovie.actor}}.</li>
+                        <li><strong>Plot:</strong> {{currentMovie.plot}}.</li>
+                        <li><strong>imdb rating:</strong> {{currentMovie.imdbScore}}.</li>
+                    </ul>
+
+                    <div  ng-show="!isReco" ng-click="like(currentMovie)"  >
+                        <i class="icon-thumbs-up" ng-class="{liked: currentMovie.wasLiked}"></i>
+                    </div>
+                    <div  ng-show="isReco" ng-click="like(currentMovie)"  >
+                        Nice, I really <i class="icon-thumbs-up" ng-class="{liked: currentMovie.wasLiked}"></i> this movie! 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </script>    
+</div>
