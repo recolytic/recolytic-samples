@@ -24,3 +24,11 @@ This sample is a static web site with a home page and some product pages.
 * **updates** are captured automaticly: Every link with **recolytic-uptake** in the query string is considered as an uptake.
 
 
+## Movie recommender
+
+Create a <a href="http://www.recolytic.com">recolytic<a> subscription. change the subscription mode to manual, upload the datafeed **DataFeed\moviesDataFeed.csv**. You can follow this <a href="https://github.com/recolytic/recolytic-tutorial">tutorial</a> for changing and upload your datafeed.
+
+* Single page application, no use of recolytic plugin
+ 
+
+
