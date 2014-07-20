@@ -7,7 +7,7 @@ angular.module('movies'
     , 'movies.services'
     , 'movies.controllers'
     ,'ui.bootstrap']).
-//routing
+  //routing
   config(['$routeProvider', function($routeProvider) {
     //static
     $routeProvider.when('/home', {templateUrl: 'views/home.html', controller: 'HomeCtrl'});
