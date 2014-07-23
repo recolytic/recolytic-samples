@@ -43,6 +43,7 @@ Create a <a href="http://www.recolytic.com">recolytic<a> subscription. change th
 * Use of <a href="https://github.com/recolytic/recolytic-plugin">recolytic plugin</a> for COLLECT / UPTAKES
 * Use of most popular / user to user / item to item recommendation strategies
 * In **static/app/controller.js** update the apikey with your.
+* In **static/index.html** update the apikey with your.
 
 <a href="http://shop.recolytic.com">live demo</a>
 

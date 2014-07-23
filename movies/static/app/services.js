@@ -61,7 +61,7 @@ services.factory('DataStoreService', function($http, $cookieStore){
 //recommendation service
 services.factory('RecoService', function($http){
   var recoSrv = {
-    baseUrl : "http://rochdi-pc:5001/",
+    baseUrl : "http://api.recolytic.com/",
     apikey :  "xxxxx-xxxxx-xxxxxx-xxxxx-xxxx-xxxx", //TODO: replace with your subsciption api key
     collect : function(movieId, callback, errorCallback){
       var url = recoSrv.baseUrl + "collect/"+ recoSrv.apikey+"?rxid="+movieId+"&l=5&callback=JSON_CALLBACK";  
