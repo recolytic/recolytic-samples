@@ -1,60 +1,51 @@
+html,
+body {
+  height: 100%;
+}
+
 @font-face
 {
   font-family: segoeuil;
   src: url(segoeuisl.woff);
-}  
+} 
 
 
-html,
-body {
-        height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
-    }
+p, a,h4,h3,h2 {
+  font-family: segoeuil;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 10px;
+}
+
 
 h4 {
-  color: #63666a;
-  font-family: segoeuil;
-  font-size: 9px;
-  font-weight: 200;
-  letter-spacing:0px  
+  font-size: 13px;
 }
 
 h3 {
-  color: #63666a;
-  font-family: segoeuil;
-  font-size: 12px;
-  font-weight: 100;
-  letter-spacing:1px;
+  font-size: 13px;
   line-height :15px;  
 }
 
 h2 {
-  color: #63666a;
-  font-family: segoeuil;
-  font-size: 16px;
-  font-weight: 200;
-  letter-spacing:1px;
+  font-size: 14px;
   line-height :15px;  
 }
 
-a {
-  color: #63666a;
-  font-family: segoeuil;
-  
-}
 
 p {
-
-   color: #63666a;
-  font-family: segoeuil;
-  font-size: 9px;
-  font-weight: 200;
+  font-size: 12px;
   letter-spacing:0px   
 }
 
 i {
-    color: #63666a;
-    font-size: 16px;
+  font-size: 16px;
+}
+
+.explain{
+  color: #4F1E33;
 }
 
 .thumbnails .caption{ overflow :hidden; text-overflow:ellipsis; white-space:nowrap; }

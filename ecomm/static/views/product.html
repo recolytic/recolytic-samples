@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="span12">
+        <img ng-show="isWoman" style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/femme.jpg" alt="femme" class="img-rounded" />
+        <img ng-show="isMan" style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/homme.jpg" alt="homme" class="img-rounded"/>
+    </div><!--  header  -->   
+
+    <div class="span12">
+        <div>
+            <h3 class="explain"><b>Recommendation context:</b></h3>
+            <ul class="unstyled explain">
+                <li><h4><b>Business rule:</b> Guide customer's catalog navigation.</li>
+                <li><h4><b>Recommendation Strategy:</b> Item-to-item collaborative filtering: For user with no records, item to item provides accurate recommendation.</li>
+            </ul>    
+        </div>   
+    </div><!--Explanation -->
+
+
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li><a href="#/univers/{{univers}}" >{{univers}}</a> <span class="divider">/</span></li>
+            <li><a href="#/category/{{univers}}/{{category}}">{{category}}</a> <span class="divider">/</span></li>
+            <li class="active">{{product.title}}</li>
+        </ul> <!--Bread crumb -->
+        
+        <div class="media">
+          <div class="pull-left" >
+            <img ng-src="http://assets.recolytic.com/demo/shop/media/{{pid}}.jpg" />
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading"><strong>Model:</strong> {{product.name}}</h3>
+            <h3 class="media-heading"><strong>Marque:</strong> {{product.brand}}</h3>
+            <h3 class="media-heading"><strong>Prix:</strong> {{product.price}}</h3>
+            <h3 class="media-heading"><strong>Description:</strong>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. </h3>
+            <div style="margin-top:20px"> 
+                <p><a class="btn btn-primary" ng-show="canAddToCart"  ng-click="addToCart(product);">Ajouter au panier</a> </p>
+                <h3 class="media-heading" ng-show="!canAddToCart"><strong><a href="#/category/{{univers}}/{{category}}">Continuer le shopping</a> - <a href="#/cart">Voir mon panier</a></strong></h3>
+            </div>
+          </div>
+        </div><!-- product details -->
+    </div><!-- The product -->
+
+    <div class="span12" ng-show="recommendations.length != 0" >
+        <ul class="breadcrumb" style='margin-top:10px'>
+            <h3>Customers Who Viewed This Item Also Viewed</h3>
+        </ul>
+        <ul class="inline thumbnails" >
+            <li ng-repeat="product in recommendations" style="text-align:center">
+                <div class="span2 text-center" style="margin-left:0px;">
+                    <a  ng-click='visitRecommendedProduct(product);' class="thumbnail"> 
+                        <img ng-src="{{product.media}}" /> 
+                    </a>
+                    <div class="caption">
+                        <h4>{{product.title}}</h4>
+                        <div ng-show="explanationMode">
+                            <ul class="unstyled">
+                                <li><h4>Score:  <b>{{product.score}}</b> </h4></li>
+                            </ul>    
+                        </div>                               
+                    </div>
+                </div>
+            </li>
+        </ul>   
+    </div>        
+</div>

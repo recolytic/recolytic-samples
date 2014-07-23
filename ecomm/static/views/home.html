@@ -1,0 +1,73 @@
+
+<div class="row" >
+    <div class="span12">
+        <img style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/home.jpg" alt="fashion" class="img-rounded" />
+    </div>
+</div>
+<div class="row">
+    <div class="span12" >
+        <h3 class="explain"><b>Recommendation context:</b></h3>
+        <ul class="unstyled explain">
+            <li><h4><b>Business rule:</b> Show most popular resources to engage the navigation, note that some products have a higher priority to show up in the recommendation. For known customers, provide a personalized recommendation based on their behavior on the web site: visits, add to cart and orders. </li>
+            <li><h4><b>Recommendation Strategy:</b> Top n most popular non recommendation strategy with user to user collaborative filtering for known customers. These two recommenders take into account the product priority set in recolytic administration console.  </li>
+        </ul> 
+    </div> 
+</div> 
+        
+        
+<div class="row">
+    <!--Most popular for woman-->
+    <div class="span4" >
+        <ul class="breadcrumb  text-center">
+             <li > <a href="#/univers/Femme"> Femme</a></li>
+        </ul>   
+
+        <ul class="unstyled" >
+            <li class="media" style="margin-top: 10px;" ng-repeat="product in topnWoman"  >
+                <a  ng-click='topnUptake(product.id);'>
+                <img class="media-object pull-left" ng-src="{{product.media}}" title="{{product.title}}" alt="{{product.title}}" ></a>
+                <div class="media-body"  >
+                    <h4>{{product.title}}</h4>
+                    <h4 class="explain">Score:<b> {{product.score}}</b></h4>
+                </div>   
+            </li>
+        </ul>
+    </div>
+    <!--Most popular for man-->
+    <div class="span4" >    
+        <ul class="breadcrumb text-center">
+            <li > <a href="#/univers/Homme"> Homme</a></li>
+        </ul>   
+        <ul class="unstyled" >
+            <li class="media" style="margin-top: 10px;" ng-repeat="product in topnMan"  >
+                <a  ng-click='topnUptake(product.id);'>
+                    <img class="media-object pull-left" ng-src="{{product.media}}" title="{{product.title}}" alt="{{product.title}}" ></a>
+                <div class="media-body"  >
+                    <h4>{{product.title}}</h4>
+                    <h4 class="explain">Score:<b> {{product.score}}</b></h4>
+                </div>   
+            </li>
+        </ul>
+    </div>
+    <!--user to user cb-->
+    <div class="span4" ng-show="uu.length > 0">
+        <ul class="breadcrumb  text-center">
+             <li>Selected for you</li>
+        </ul>   
+        <ul class="unstyled" >
+            <li class="media" style="margin-top: 10px;" ng-repeat="product in uu"  >
+                <a ng-click='uuUptake(product.id);'>
+                    <img class="media-object pull-left" ng-src="{{product.media}}" title="{{product.title}}" alt="{{product.title}}" ></a>
+                <div class="media-body"  >
+                    <h4>{{product.title}}</h4>
+                    <h4 class="explain">Score:<b> {{product.score}}</b></h4>
+                </div>   
+            </li>
+        </ul>
+    </div>
+    <div class="span4" ng-show="uu.length <= 0">
+        <img src="http://assets.recolytic.com/demo/shop/promo.jpg" class="img-polaroid">
+        <h4 class="explain">No Personal recommendation is available, we need to know you better through your navigation in the catalog.</h4>
+    </div>
+
+</div>

@@ -2,7 +2,7 @@
 <html lang="en" ng-app="movies">
 	<head>
 		<meta charset="utf-8">
-		<title>demo movies recolytic.com</title>
+		<title>movies demo recolytic.com</title>
 		<meta name="description" content="This is a sample integration project with recolytic recommendation engine.">
 	    <link rel="icon" type="image/png" href="http://www.recolytic.com/img/logo-fb.png">
 	    <link rel="image_src" href="http://www.recolytic.com/img/logo-fb.png">
@@ -42,6 +42,16 @@
 			</div>
     		<!-- main content -->
     		<div class="container" >
+    			<div class="row">
+					<div class="span12">
+		                <h3 class="explain"><b>Recommendation context:</b></h3>
+		                <ul class="unstyled explain">
+		                    <li><h4><b>Context:</b> Using the explicit action 'like' we learn your preferences, and we can provide you a personalized list of movies.</li>
+		                    <li><h4><b>Recommendation Strategy:</b> User to user collaborative filtering: What movies you liked, who are the users who like the same movies, and what other movies they liked ?</li>
+		                </ul>    
+			        </div><!--Explanation -->
+				</div>
+
     			<div ng-view>
     			</div>
     		</div>

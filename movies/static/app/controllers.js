@@ -36,7 +36,8 @@ ctrl.controller('HomeCtrl', function($scope, $dialog, $http, $window, DataStoreS
 	$scope.err = false;
 	$scope.pageSize = 10;
 	$scope.currentPage = 0;
-	$scope.explanationMode = false;
+	
+
 
 	DataStoreService(function(dataservice){
 		$scope.moviesStore = dataservice.getStore();
@@ -56,7 +57,9 @@ ctrl.controller('HomeCtrl', function($scope, $dialog, $http, $window, DataStoreS
 	            }}).open('movieDetails.html','MovieDetailsController');			
 		}
 		//recommendation handler : request a refresh 
-		$scope.refreshReco = function(recommended){  $scope.recommended = recommended;}	
+		$scope.refreshReco = function(recommended){  
+			if(!$.isEmptyObject(recommended)) $scope.recommended = recommended;
+		}	
 		// like action 
 		$scope.like = likeAction($scope, DataStoreService, RecoService, $scope.refreshReco );
 		// up take

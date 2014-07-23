@@ -29,24 +29,14 @@
     <!-- explicit uu recommendation -->
     <div class="span5">
         <h3>Movies you may  <i class="icon-thumbs-up"></i>  </h3> 
-        <a ng-click="changeExplanationMode()" ng-show="explanationMode">Hide explanation</a>
-        <a ng-click="changeExplanationMode()" ng-show="!explanationMode">Show explanation</a>
-        <div class="row" ng-show="explanationMode">
-            <div class="span5">
-                <ul class="unstyled">
-                    <li><h4><b>Context:</b>Using the explicit action 'like' we start knowing your preference, and we can provide you a personalized recommendation.</h4></li>
-                    <li><h4><b>Recommendation Strategy:</b>User to user collaborative filtering: What movies you liked, who are the users who like the same movies, and what other movies they like ?</h4> </li>
-                </ul>
-            </div>
-        </div>    
-
         <ul class="unstyled" >
             <li class="media" style="margin-top: 10px;" ng-repeat="reco in recommended"  >
                 <img class="media-object pull-left" ng-src="{{reco.media}}" title="{{reco.title}}" alt="{{reco.title}}" ng-click="showDetails(reco,true)">
                 <h4><b>{{reco.title}}</b> </h4>
-                <h4><b>Score:{{reco.score}}</b> </h4> 
+                <h4 class="explain">Score:{{reco.score}}</h4> 
             </li>
-        </ul>
+        </ul> 
+        <h4 class="explain" ng-show="recommended.length == 0">No Personal recommendation is available, we need to know you better, tell us what movies you like</h4>       
     </div><!--end recommendation-->
 
    <!--pop up-->

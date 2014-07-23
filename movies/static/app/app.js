@@ -6,7 +6,7 @@ angular.module('movies'
     , 'movies.directives'
     , 'movies.services'
     , 'movies.controllers'
-    ,'ui.bootstrap']).
+    , 'ui.bootstrap']).
   //routing
   config(['$routeProvider', function($routeProvider) {
     //static

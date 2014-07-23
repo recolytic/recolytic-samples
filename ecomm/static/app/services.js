@@ -6,88 +6,81 @@ var services = angular.module('shop.services',['ngCookies']);
 
 //angular known bug
 services.config(function($httpProvider){
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
 
-//array helper method
-function firstOrDefault(arr, predicate){
-  var result;
-  for (var i=0;i<arr.length;i++) { 
-    if(predicate(arr[i])) {
-      result = arr[i];
-      break;
-    }
-  }
-  return result;
-};
-
-
-
+// Movies static repository
 services.factory('CatalogService', function($http,$window){
-  var catalogSrv;
-  return function(callback){
-    if(catalogSrv){
-      callback(catalogSrv);
-    }else{
-      //get the full catalog
-      $http.get('/store/catalog.json').success( function(catalog){
-        	//initiate an empty set of priority resources
-        	var priorityResources ={};
-        	var scopes =[];
+  var catalogSrv = {
+    section : null,
+    category : null,
+    currentProduct : null,
+    sampleSection : null,
 
-	        //set the sections and the category and fill the scopes array
-	        Object.keys(catalog).forEach(function(section){
-	          priorityResources[section] = {};
-	          Object.keys(catalog[section]).forEach(function(category){
-	            priorityResources[section][category] = []; 
-	            scopes.push(section + '|' + category);
-	          });
-	        })
-          	//define the catalog serv    
-          	catalogSrv = {
-            	catalog : catalog,
-            	sampleCatalog : priorityResources,
-            	getProduct : function(section, category, pid){
-              		return firstOrDefault(this.catalog[section][category], function(p){ return p.id == pid;});
-            	},
-            getProductForId : function(pid){
-              var p;
-              for(var section in this.catalog){
-                for(var category in this.catalog[section]){
-                  for(var index in this.catalog[section][category]){
-                    if(this.catalog[section][category][index].id == pid){
-                       p =  {section:section, category: category, product:this.catalog[section][category][index]};
-                       break;
-                    }
-                  }
-                  if(p) break;
-                }
-                if(p) break;
-              }
-
-              return p;    
-            },
-            getProducts : function(pids){
-               var self = this;
-              return pids.map(function(pid){ 
-                              var productHierarchy = pid.split('|');
-                              return firstOrDefault(self.catalog[productHierarchy[0]][productHierarchy[1]], function(p){
-                                                                    return p.id == productHierarchy[2];})
-              });
-            },
-            getSampleSection: function(section){
-              return this.sampleCatalog[section];
-            },
-            getSection : function(section){
-              return this.catalog[section];
-            },
-            getCategory : function(section, category){
-              return this.catalog[section][category];
-            }};
-            //return the catalog service instance   
-            callback(catalogSrv);
-          }); // // calls handler
-        }); // end // calls 
+    getProduct : function(pid){
+      var self = this;
+      $http.get('/api/product/'+ pid).success(function(data) { 
+          self.currentProduct =  data;});
+      return self.currentProduct;
+    },
+    getSection : function(section){
+      var self = this;
+      $http.get('/api/catalog/'+ section).success(function(data) { 
+        self.section =  data;});
+      return self.section;
+    },
+    getSampleSection : function(section){
+      var self = this;
+      $http.get('/api/sampleCatalog/'+ section).success(function(data) { 
+        self.sampleSection =  data;});
+      return self.section;
+    },    
+    getCategory : function(section, category){
+      var self = this;
+      $http.get('/api/category/'+section +'/'+ category).success(function(data) { 
+        self.category =  data;});
+      return self.sampleCatalog;
     }
-  }
+  };
+  return catalogSrv;
+});
+
+//simple cart service 
+services.factory('CartService', function($cookieStore, CatalogService){
+  var cartSrv = {
+    addToCart : function(product){
+      var cart = $cookieStore.get("cart");
+      var key =  product.id;
+      if(cart){
+         if(!cart[key]) {
+            cart[key] = product;
+         }
+      } else {
+        cart  = {} ;
+        cart[key] = product 
+      }
+      //update the cookie
+      $cookieStore.put("cart", cart);
+    },
+    loadCart : function(callback){
+      var cart = $cookieStore.get("cart");
+      return cart;
+    },
+    canAddToCart : function(pid){
+      var cart = $cookieStore.get("cart");
+      if(cart){
+        if(cart[pid]) {
+          return false;
+        }else{
+          return true;
+        }
+      }else{
+        return true;
+      }
+    },
+    clearCart : function(){
+      $cookieStore.remove("cart");
+    }
+  };
+  return cartSrv;
 });

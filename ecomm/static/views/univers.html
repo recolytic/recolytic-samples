@@ -1,0 +1,29 @@
+<!--<div class="span12" style="margin-left:0px"> -->
+<div class="row">
+
+    <div class="span12">
+        <img ng-show="isWoman" style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/femme.jpg" alt="femme" class="img-rounded" />
+        <img ng-show="isMan" style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/homme.jpg" alt="homme" class="img-rounded"/>
+    </div>
+    <ul class="unstyled" style="margin-top:20px;">
+        <li ng-repeat="(category, products) in sampleUniversCatalog" >
+            <div class="span4 text-center" >
+                <ul class="breadcrumb">
+                     <li > <a href="#/category/{{univers}}/{{category}}"> {{univers}} <span class="divider">/</span> {{category}} </a> </li>
+                </ul>   
+                <ul class="span4 thumbnails" >
+                    <li ng-repeat="product in products" style="text-align:center">
+                        <div class="span4 text-center" style="margin-left:0px;">
+                            <a href="#/product/{{product.id}}" class="thumbnail"> 
+                                <img ng-src="http://assets.recolytic.com/demo/shop/media/{{product.id}}.jpg"/> 
+                            </a>
+                            <div class="caption">
+                                <h4>{{formatTitle(product)}} <b>{{product.price}}</b></h4>
+                            </div>
+                        </div>
+                    </li>
+                </ul>   
+            </div>
+        </li>   
+    </ul> 
+</div>

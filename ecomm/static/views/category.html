@@ -1,0 +1,23 @@
+<div class="row">	
+	<div class="span12">
+        <img ng-show="isWoman" style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/femme.jpg" alt="femme" class="img-rounded" />
+        <img ng-show="isMan" style="margin-top:-20px;margin-bottom: 20px;" src="http://assets.recolytic.com/demo/shop/homme.jpg" alt="homme" class="img-rounded"/>
+    
+
+        <ul class="breadcrumb">
+            <li><a href="#/univers/{{univers}}">{{univers}}</a><span class="divider">/</span></li>
+            <li class="active">{{category}}<span class="divider">/</span></li>
+        </ul>
+
+        <ul class="thumbnails">
+            <li  class="span3" ng-repeat="product in products">
+                <a href="#/product/{{product.id}}" class="thumbnail">
+                    <img ng-src="http://assets.recolytic.com/demo/shop/media/{{product.id}}.jpg" />
+                </a>
+                <div class="caption">
+                    <h4>{{formatTitle(product)}} <b>{{product.price}}</b></h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>    

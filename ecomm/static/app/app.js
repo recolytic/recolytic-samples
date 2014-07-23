@@ -6,14 +6,13 @@ angular.module('shop'
   , 'shop.services'
   , 'shop.directives'
   , 'shop.controllers'
-  ,'ui.bootstrap']).
-  //routing
+  , 'ui.bootstrap']).
+//routing
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/home', {templateUrl: 'views/home.html', controller: 'HomeCtrl'});
-    $routeProvider.when('/catalog/:section', {templateUrl: 'views/section.html', controller: 'CatalogCtrl'});
-    $routeProvider.when('/product/:section/:category/:pid', {templateUrl: 'views/product.html', controller: 'ProductCtrl'});
-    $routeProvider.when('/category/:section/:category', {templateUrl: 'views/category.html', controller: 'CategoryCtrl'});
+    $routeProvider.when('/univers/:univers', {templateUrl: 'views/univers.html', controller: 'UniversCtrl'});
+    $routeProvider.when('/product/:pid', {templateUrl: 'views/product.html', controller: 'ProductCtrl'});
+    $routeProvider.when('/category/:univers/:category', {templateUrl: 'views/category.html', controller: 'CategoryCtrl'});
     $routeProvider.when('/cart', {templateUrl: 'views/cart.html', controller: 'CartCtrl'});
-    //default
     $routeProvider.otherwise({redirectTo: '/home'});
   }])
